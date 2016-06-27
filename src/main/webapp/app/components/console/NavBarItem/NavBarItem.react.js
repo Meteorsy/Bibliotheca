@@ -14,7 +14,7 @@ class NavBarItem extends React.Component {
             if (stats.pid == 0) {
                 return (
                     <li>
-                        <a href={stats.href}>
+                        <a href={"/#/console" + stats.href}>
                             <i className={"fa fa-" + stats.icon} />
                             <span className="title">{stats.names}</span>
                             <span> </span>
@@ -25,7 +25,7 @@ class NavBarItem extends React.Component {
                                 if (subStats.pid == stats.id) {
                                     return (
                                         <li>
-                                            <a href={subStats.href}>
+                                            <a href={"/#/console" + subStats.href}>
                                                 <span className="title">{subStats.names}</span>
                                             </a>
 
@@ -34,7 +34,7 @@ class NavBarItem extends React.Component {
                                                     if (subStat.pid == subStats.id) {
                                                         return (
                                                             <li>
-                                                                <a href={subStat.href}>
+                                                                <a href={"/#/console" + subStat.href}>
                                                                     <span className="title">{subStat.names}</span>
                                                                 </a>
                                                             </li>

@@ -15,7 +15,7 @@ class NavHeader extends React.Component {
                         {this.props.nav.map((navs) => {
                             return (
                                 <li>
-                                    <a href={navs.link} target="_parent">
+                                    <a href={"/#" + navs.link} target="_parent">
                                         {navs.icon != '#' ? <i className={"fa fa-" + navs.icon} /> : ''}
                                         {navs.names}
                                     </a>
