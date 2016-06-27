@@ -1,0 +1,37 @@
+{
+  "name": "streetlight",
+  "description": "The platform to manage the streetlight",
+  "main": "app.js",
+  "authors": [
+    "Lethe <13738144507@sina.cn>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "map",
+    "streetlight"
+  ],
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/lib"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "bootstrap": "^3.3.6",
+    "flux": "^2.1.1",
+    "font-awesome": "^4.6.2",
+    "gsap": "^1.18.4",
+    "html5shiv": "^3.7.3",
+    "jquery-pjax": "^1.9.6",
+    "jquery-validation": "^1.15.0",
+    "react": "^15.0.2",
+    "respond": "^1.4.2",
+    "toastr": "^2.1.2",
+    "react-router": "^2.4.0",
+    "jquery.selectBoxIt": "^3.8.1",
+    "jquery-ui": "jquery.ui#^1.11.4",
+    "perfect-scrollbar": "^0.6.11"
+  }
+}

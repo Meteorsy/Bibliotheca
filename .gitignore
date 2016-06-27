@@ -1,0 +1,5 @@
+Bibliotheca.*
+target
+src/main/webapp/app/lib
+src/main/webapp/node_modules
+src/main/webapp/dist

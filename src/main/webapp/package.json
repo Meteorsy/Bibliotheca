@@ -1,0 +1,41 @@
+{
+  "name": "streetlight",
+  "version": "1.0.0",
+  "description": "the management platform for the streetlights",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".git"
+  },
+  "keywords": [
+    "map",
+    "streetlight"
+  ],
+  "author": "Lethe <13738144507@sina.cn>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.12.10",
+    "browserify": "^13.0.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^1.3.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "node-sass": "^3.7.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
