@@ -1,0 +1,22 @@
+#consoleApp {
+    .table {
+        thead {
+            th {
+                padding: 12px 15px;
+                color: #2C2E2F;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background: #F9F9F9;
+                }
+
+                td {
+                    padding: 12px 15px;
+                }
+            }
+        }
+    }
+}

@@ -2,7 +2,9 @@
 
 import LoginApp from './components/login/LoginApp/LoginApp.react';
 import ConsoleApp from './components/console/ConsoleApp/ConsoleApp.react';
+
 import UserAdd from './components/console/UserAdd/UserAdd.react';
+import UserList from './components/console/UserList/UserList.react';
 
 let
     Router = window.ReactRouter.Router,
@@ -17,6 +19,7 @@ ReactDOM.render(
                 <Route path="login" component={LoginApp} />
                 <Route path="console" component={ConsoleApp}>
                     <Route path="user/add" component={UserAdd} />
+                    <Route path="user/list" component={UserList} />
                 </Route>
             </Route>
         </Router>

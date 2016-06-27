@@ -12,7 +12,7 @@ public class Nav {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "names")
+    @Column(name = "navName")
     private String names;
 
     @Column(name = "icon")
@@ -23,6 +23,9 @@ public class Nav {
 
     @Column(name = "pid")
     private Integer pid;
+
+    @Column(name = "rights")
+    private Integer rights;
 
     public Integer getId() {
         return id;
@@ -62,5 +65,13 @@ public class Nav {
 
     public void setPid(Integer pid) {
         this.pid = pid;
+    }
+
+    public Integer getRights() {
+        return rights;
+    }
+
+    public void setRights(Integer rights) {
+        this.rights = rights;
     }
 }
