@@ -1,0 +1,39 @@
+@import "../NavBarItem/NavBarItem.react.scss";
+
+#consoleApp {
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 80px;
+        height: 100%;
+        background: $main-nav-bar-bg-color;
+
+        ul {
+            display: none;
+        }
+
+        header {
+            padding: 18px 0;
+            text-align: center;
+            border-bottom: 1px solid $main-nav-bar-border-color;
+
+            img {
+                width: 40px;
+            }
+        }
+    }
+
+    .label-warning {
+        background: $main-nav-label-warning-bg-color;
+    }
+
+    .label-error {
+        background: $main-nav-label-error-bg-color;
+    }
+
+    .label-success {
+        background: $main-nav-label-success-bg-color;
+    }
+}

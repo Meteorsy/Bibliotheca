@@ -1,0 +1,40 @@
+@import "../LoginForm/LoginForm.react.scss";
+@import "../LoginButton/LoginButton.react.scss";
+@import "../EditText/EditText.react.scss";
+
+#loginApp {
+    height: 100%;
+    background: $login-body-bg-color;
+
+    i {
+        margin-right: 5px;
+    }
+
+    .login {
+        margin: 0 auto;
+        max-width: 960px;
+    }
+
+    .external-login {
+        padding: 0 30px;
+    }
+
+    .loading-bar {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 5px;
+        background: $login-loading-bar-color;
+    }
+
+    .hide-bar {
+        opacity: 0;
+        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        -webkit-transition: opacity 150ms ease-out 150ms;
+        -moz-transition: opacity 150ms ease-out 150ms;
+        -o-transition: opacity 150ms ease-out 150ms;
+        transition: opacity 150ms ease-out 150ms;
+    }
+}

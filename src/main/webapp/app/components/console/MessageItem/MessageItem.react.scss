@@ -1,0 +1,81 @@
+#consoleApp {
+    #quick-btn li:nth-child(1) {
+        & > ul.dropdown-menu {
+            & > li:first-child {
+                max-height: 300px;
+                overflow: hidden;
+
+                li {
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        right: 30px;
+                        width: 5px;
+                        height: 5px;
+                        display: block;
+                        background: #CCC;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 20px 30px;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 30px;
+                            right: 30px;
+                            height: 1px;
+                            background: #EDEDED;
+                        }
+
+                        .line {
+                            display: block;
+
+                            span:last-child {
+                                font-size: 12px;
+                                opacity: 0.6;
+                                -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+                                filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+                            }
+
+                            &:nth-child(2) {
+                                margin-right: 10px;
+                                font-size: 12px;
+                                overflow: hidden;
+                                -ms-text-overflow: ellipsis;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                        }
+
+                        &:hover .line {
+                            color: #606161;
+                        }
+                    }
+                }
+
+                .current {
+                    &::after {
+                        background: #8DC63F;
+                    }
+
+                    .line {
+                        color: #606161;
+
+                        span:first-child {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

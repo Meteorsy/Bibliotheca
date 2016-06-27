@@ -1,0 +1,11 @@
+@import "../../common/skin/skin-default.scss";
+
+#consoleApp {
+    #quick-btn li:nth-child(1) {
+        & > a {
+            .badge-green {
+                background: $main-badge-success-bg-color;
+            }
+        }
+    }
+}

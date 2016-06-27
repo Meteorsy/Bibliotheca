@@ -1,0 +1,47 @@
+#consoleApp {
+    .main-content {
+        .form-group {
+            margin: 15px 0 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #EEE;
+
+            &:first-child {
+                margin: 0;
+            }
+
+            &:last-child {
+                border: none;
+            }
+
+            label {
+                font-weight: 400;
+            }
+
+            .col-margin-7 {
+                margin-left: 7%;
+            }
+
+            .input-group-addon {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+
+                i {
+                    width: 15px;
+                }
+            }
+
+            .form-control {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+
+                &:focus {
+                    -webkit-box-shadow: none;
+                    -moz-box-shadow: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,265 @@
+.selectboxit-container {
+    position: relative;
+    display: block;
+    vertical-align: top;
+
+    .selectboxit-open {
+        .selectboxit-arrow-container {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+
+    & * {
+        font: 14px Helvetica, Arial;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        white-space: nowrap;
+    }
+
+    span {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .selectboxit {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100% !important;
+        overflow: hidden;
+        cursor: pointer;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &.selectboxit-disabled {
+            opacity: 0.65;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            cursor: default;
+        }
+
+        .selectboxit-option-icon-container {
+            margin-left: 5px;
+        }
+
+        .selectboxit-text {
+            float: left;
+            max-width: 100% !important;
+            font-size: 13px;
+            color: #7D7F7F;
+            text-indent: 10px;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .selectboxit-arrow-container {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            -webkit-transition: all 220ms ease-in-out;
+            -moz-transition: all 220ms ease-in-out;
+            -o-transition: all 220ms ease-in-out;
+            transition: all 220ms ease-in-out;
+
+            .selectboxit-arrow {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                left: 0;
+                margin: 0 auto;
+
+                &.ui-icon {
+                    top: 30%;
+                }
+            }
+
+            .selectboxit-default-arrow {
+                width: 0;
+                height: 0;
+
+                &::before {
+                    display: block;
+                    content: '\f107';
+                    font-family: "FontAwesome", sans-serif;
+                }
+            }
+        }
+    }
+
+    .selectboxit-btn {
+        background: #FFF repeat-x;
+        border: 1px solid #E4E4E4;
+
+        &.selectboxit-enabled {
+            &:hover,
+            &:focus,
+            &:active {
+                color: #2C2E2F;
+            }
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-position: 0 -15px;
+            }
+        }
+    }
+
+    .selectboxit-list {
+        width: 100%;
+        max-height: 250px;
+        background: #FFF;
+        border: 1px solid #E4E4E4;
+        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+        &.ps-container {
+            overflow: hidden;
+        }
+
+        .selectboxit-option-anchor {
+            color: #717272;
+            font-size: 13px;
+        }
+
+        & > .selectboxit-focus > .selectboxit-option-anchor {
+            color: #FFF;
+            background: #68B828 repeat-x;
+        }
+
+        & > .selectboxit-disabled > .selectboxit-option-anchor {
+            color: #999;
+        }
+    }
+
+    .selectboxit-options {
+        position: absolute;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+        display: none;
+        *width: 100%;
+        min-width: 100%;
+        list-style: none;
+        text-align: left;
+        cursor: pointer;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        a {
+            display: block;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .selectboxit-disabled {
+            @extend .selectboxit.selectboxit-disabled
+        }
+
+        .selectboxit-option {
+            margin: 0;
+            text-indent: 5px;
+            list-style-type: none;
+
+            .selectboxit-option-anchor {
+                padding: 0 10px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .selectboxit-optgroup-header {
+            font-weight: bold;
+            @extend .selectboxit-option;
+
+            &:hover {
+                cursor: default;
+            }
+
+            & + .selectboxit-option-first {
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+
+        .selectboxit-option-first {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        .selectboxit-option-last {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    .selectboxit-option-icon-container {
+        float: left;
+
+        .selectboxit-option-icon {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+    }
+
+    .selectboxit-option-icon-url {
+        float: left;
+        width: 18px;
+        height: 100%;
+        background: no-repeat center;
+        -webkit-background-size: 18px 18px;
+        background-size: 18px 18px;
+    }
+}
+
+.selectboxit-rendering {
+    position: absolute !important;
+    top: -3000px !important;
+    left: -3000px !important;
+    zoom: 1 !important;
+    display: inline-block !important;
+    *display: inline !important;
+    visibility: visible !important;
+}
+
+.jqueryui {
+    .ui-icon {
+        background-color: inherit;
+    }
+
+    .ui-icon-triangle-1-s {
+        background-position: -64px -16px;
+    }
+}

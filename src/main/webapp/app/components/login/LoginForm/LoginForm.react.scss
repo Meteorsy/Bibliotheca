@@ -1,0 +1,53 @@
+@import "../../common/skin/skin-default.scss";
+
+#loginApp {
+    .login-form {
+        margin-bottom: 20px;
+        padding: 30px;
+    }
+
+    header p {
+        margin: 10px 0 40px;
+    }
+
+    footer a {
+        font {
+            size: 13px;
+        }
+        color: #979898;
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: #BDBEBE;
+            outline: none;
+            text-decoration: none;
+        }
+    }
+
+    .btn {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        margin-bottom: 45px;
+        width: 100%;
+        font-size: 13px;
+        text-align: left;
+        background: $login-button-bg-color;
+        border: 1px solid $login-button-border-color;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+
+        &:hover {
+            color: $login-body-font-color;
+            background: $login-button-bg-color-hover;
+            outline: none;
+        }
+
+        &:active,
+        &:focus {
+            outline: none !important;
+            color: $login-body-font-color;
+        }
+    }
+}

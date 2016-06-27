@@ -1,0 +1,51 @@
+#consoleApp {
+    .nav-header {
+        padding: 20px 0;
+        height: 95px;
+        background: #F8F8F8;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), 0 1px 0 #EDEDED inset;
+        -moz-box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), 0 1px 0 #EDEDED inset;
+        box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), 0 1px 0 #EDEDED inset;
+
+        .title-env {
+            float: left;
+            padding-left: 30px;
+
+            .nav-title {
+                margin: 0;
+                font-size: 27px;
+                color: #2C2E2F;
+
+                & + p {
+                    margin: 5px 0 0 0;
+                    color: #979898;
+                }
+            }
+        }
+
+        .breadcrumb-env {
+            float: right;
+            padding-right: 30px;
+
+            .breadcrumb {
+                margin: 8px auto 0;
+                background: transparent;
+
+                li {
+                    margin: 0 4px;
+
+                    a {
+                        color: #979898;
+                    }
+
+                    &:last-child {
+                        a {
+                            font-weight: 700;
+                            color: #646565;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

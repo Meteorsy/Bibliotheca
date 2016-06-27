@@ -1,0 +1,78 @@
+@import "../../common/skin/skin-default.scss";
+
+#consoleApp {
+    #profile-btn > li:nth-child(2) {
+        position: relative;
+        border-width: 0 1px;
+        border-style: none solid;
+        border-color: $main-header-bg-color;
+        cursor: pointer;
+
+        img {
+            width: 28px;
+            height: 28px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+
+            & + span {
+                display: inline-block;
+                margin-left: 5px;
+
+                i {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        &.open {
+            border-color: #DDD;
+
+            & > ul {
+                display: block;
+            }
+        }
+
+        ul {
+            right: -1px;
+            left: auto;
+            width: 250px;
+
+            li {
+                position: relative;
+                padding: 15px 20px 0;
+                font-size: 13px;
+
+                a {
+                    padding: 0 0 10px;
+                    border-bottom: 1px solid #F0F0F0;
+
+                    &:hover,
+                    &:focus {
+                        background: none;
+                    }
+
+                    i {
+                        margin-right: 10px;
+                        width: 10px;
+                    }
+                }
+
+                &:last-child {
+                    background: #FAFAFA;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -1px;
+                        left: 0;
+                        right: 0;
+                        height: 1px;
+                        display: block;
+                        background: #F0F0F0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+#consoleApp {
+    #quick-btn li:nth-child(2) {
+        & > ul.dropdown-menu {
+            & > li:nth-child(1) {
+                padding: 20px 30px 0;
+
+                p {
+                    margin: 0;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #EDEDED;
+                    color: #979898;
+                    font-size: 92%;
+
+                    a {
+                        float: right;
+                    }
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            & > li:nth-child(2) {
+                ul {
+                    max-height: 300px;
+                    overflow: hidden;
+
+                    li {
+                        position: relative;
+
+                        a {
+                            display: block;
+                            padding: 20px 30px;
+                            color: #979898;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                left: 30px;
+                                right: 30px;
+                                display: block;
+                                height: 1px;
+                                background: #EDEDED;
+                            }
+
+                            &:hover {
+                                span {
+                                    color: #606161;
+                                }
+                            }
+
+                            i {
+                                float: left;
+                                width: 27px;
+                                height: 27px;
+                                padding: 5px;
+                                text-align: center;
+                                line-height: 15px;
+                                color: #FFF;
+                                -webkit-border-radius: 50%;
+                                -moz-border-radius: 50%;
+                                border-radius: 50%;
+                            }
+
+                            span {
+                                display: block;
+                                padding-left: 45px;
+
+                                &:first-of-type {
+                                    font-weight: 700;
+                                }
+
+                                &:last-child {
+                                    margin-top: 5px;
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+                    }
+
+                    .current {
+                        span {
+                            color: #606161;
+                        }
+                    }
+                }
+            }
+        }
+
+        .notification-user {
+            background: #8DC63F;
+        }
+    }
+}

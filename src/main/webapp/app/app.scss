@@ -1,0 +1,28 @@
+@import "./components/login/LoginApp/LoginApp.react.scss";
+@import "./components/console/ConsoleApp/ConsoleApp.react.scss";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font {
+        size: 13px;
+    }
+    color: $login-body-font-color;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}

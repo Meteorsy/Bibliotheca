@@ -1,0 +1,50 @@
+@import "../../common/skin/skin-default.scss";
+
+#loginApp {
+    .external-login a {
+        display: block;
+        margin-bottom: 10px;
+        padding: 13px 20px;
+        font {
+            size: 15px;
+        }
+        color: $login-body-font-color;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            text-decoration: none;
+        }
+    }
+
+    .wechat {
+        background: $login-fa-wechat;
+
+        &:hover {
+            color: $login-body-font-color;
+            background: $login-fa-wechat-hover;
+        }
+    }
+
+    .weibo {
+        background: $login-fa-weibo;
+
+        &:hover {
+            color: $login-body-font-color;
+            background: $login-fa-weibo-hover;
+        }
+    }
+
+    .qq {
+        background: $login-fa-qq;
+
+        &:hover {
+            color: $login-body-font-color;
+            background: $login-fa-qq-hover;
+        }
+    }
+}

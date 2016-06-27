@@ -1,0 +1,126 @@
+@import "../Message/Message.react.scss";
+@import "../MessageItem/MessageItem.react.scss";
+
+@import "../Notifications/Notifications.react.scss";
+@import "../NotificationItem/NotificationItem.react.scss";
+
+@import "../Search/Search.react.scss";
+
+@import "../User/User.react.scss";
+
+#consoleApp {
+    #scrollBarContainer header {
+        margin-left: 80px;
+        height: 78px;
+        background: $main-header-bg-color;
+
+        & > ul > li {
+            float: left;
+            padding: 25px 20px;
+        }
+
+        a {
+            color: $main-profile-bg-color;
+
+            &:hover,
+            &:focus {
+                color: $main-profile-hover-bg-color;
+                outline: none;
+            }
+        }
+
+        .dropdown-menu {
+            top: 75px;
+            padding: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        #quick-btn {
+            float: left;
+
+            & > li {
+                position: relative;
+                height: 78px;
+                border-width: 0 1px;
+                border-style: none solid;
+                border-color: $main-header-bg-color;
+                cursor: pointer;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 2;
+                    height: 2px;
+                    display: none;
+                    background: #8DC63F;
+                }
+
+                &:hover {
+                    &::before {
+                        display: block;
+                    }
+                }
+
+                &.open {
+                    border-color: #DDD;
+
+                    &::before {
+                        display: block;
+                    }
+
+                    & > ul {
+                        display: block;
+                    }
+                }
+
+                & > ul.dropdown-menu {
+                    left: -1px;
+                    z-index: 4;
+                    width: 370px;
+                    font-size: 13px;
+
+                    & > li:last-child > a {
+                        padding: 15px 30px;
+                        color: #979898;
+                        background: #F5F5F5;
+
+                        &:hover {
+                            color: #6A6B6C;
+                        }
+                    }
+                }
+
+                & > a {
+                    position: relative;
+
+                    i {
+                        font-size: 15px;
+
+                        & + span {
+                            position: absolute;
+                            top: -10px;
+                            right: -10px;
+                            z-index: 2;
+                            padding: 4px;
+                            min-width: 18px;
+                            font-size: 9px;
+                        }
+                    }
+                }
+
+                &:first-child {
+                    margin-left: 30px;
+                }
+            }
+        }
+
+        #profile-btn {
+            float: right;
+        }
+    }
+}

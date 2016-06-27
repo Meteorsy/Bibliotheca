@@ -1,0 +1,34 @@
+@import "../HeaderBar/HeaderBar.react.scss";
+@import "../NavBar/NavBar.react.scss";
+@import "../NavHeader/NavHeader.react.scss";
+
+@import "../UserAdd/UserAdd.react.scss";
+
+@import "../InputControl/InputControl.react.scss";
+@import "../SelectList/SelectList.react.scss";
+@import "../SimpleButton/SimpleButton.react.scss";
+
+#consoleApp {
+    height: 100%;
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    #scrollBarContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $main-body-bg-color;
+
+        .main-content {
+            margin-left: 80px;
+        }
+    }
+}

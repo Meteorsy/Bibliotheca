@@ -1,0 +1,73 @@
+@import "../../common/skin/skin-default.scss";
+
+#loginApp {
+    section {
+        position: relative;
+    }
+
+    label {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        line-height: 40px;
+        font-size: 12px;
+        font-weight: 400;
+
+        &.control-label {
+            left: 0;
+            padding: 0 13px;
+            color: #979898;
+            cursor: text;
+            opacity: 1;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            -webkit-transition: opacity 500ms ease-out 150ms;
+            -moz-transition: opacity 500ms ease-out 150ms;
+            -o-transition: opacity 500ms ease-out 150ms;
+            transition: opacity 500ms ease-out 150ms;
+        }
+
+        &.error {
+            right: 0;
+            padding-right: 12px;
+            color: $login-label-font-error-color;
+        }
+    }
+
+    .is-focused .control-label {
+        opacity: 0;
+        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        -webkit-transition: opacity 500ms ease-out 150ms;
+        -moz-transition: opacity 500ms ease-out 150ms;
+        -o-transition: opacity 500ms ease-out 150ms;
+        transition: opacity 500ms ease-out 150ms;
+    }
+
+    .form-control {
+        height: 40px;
+        background: $login-input-bg-color;
+        border: 1px solid $login-input-border-color;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+
+        &:focus {
+            border-color: $login-input-border-color;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        &:active {
+            border-color: $login-input-border-color;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        &.error {
+            border-color: $login-input-error-border;
+        }
+    }
+}
