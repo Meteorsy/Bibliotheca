@@ -13,7 +13,7 @@ class Panel extends React.Component {
                     <div className="col-sm-12">
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <h3 className="panel-title">用户添加</h3>
+                                <h3 className="panel-title">{this.props.title}</h3>
                             </div>
                             {this.props.childComponent}
                         </div>

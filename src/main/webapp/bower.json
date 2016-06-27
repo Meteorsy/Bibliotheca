@@ -32,6 +32,7 @@
     "react-router": "^2.4.0",
     "jquery.selectBoxIt": "^3.8.1",
     "jquery-ui": "jquery.ui#^1.11.4",
-    "perfect-scrollbar": "^0.6.11"
+    "perfect-scrollbar": "^0.6.11",
+    "bootstrap-switch": "^3.3.2"
   }
 }
