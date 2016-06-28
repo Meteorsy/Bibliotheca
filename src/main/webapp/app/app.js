@@ -3,6 +3,10 @@
 import LoginApp from './components/login/LoginApp/LoginApp.react';
 import ConsoleApp from './components/console/ConsoleApp/ConsoleApp.react';
 
+import BookBorrow from './components/console/BookBorrow/BookBorrow.react';
+import BorrowList from './components/console/BorrowList/BorrowList.react';
+import BorrowCheck from './components/console/BorrowCheck/BorrowCheck.react';
+
 import QueryRequest from './components/console/QueryRequest/QueryRequest.react';
 import QueryList from './components/console/QueryList/QueryList.react';
 import QueryCheck from './components/console/QueryCheck/QueryCheck.react';
@@ -18,6 +22,8 @@ import SpreadConfig from './components/console/SpreadConfig/SpreadConfig.react';
 
 import UserAdd from './components/console/UserAdd/UserAdd.react';
 import UserList from './components/console/UserList/UserList.react';
+import Introduction from './components/console/Introduction/Introduction.react';
+import ResourceAdd from './components/console/ResourceAdd/ResourceAdd.react';
 
 let
     Router = window.ReactRouter.Router,
@@ -31,6 +37,12 @@ ReactDOM.render(
                 <IndexRoute component={LoginApp} />
                 <Route path="login" component={LoginApp} />
                 <Route path="console" component={ConsoleApp}>
+                    <Route path="book">
+                        <IndexRoute component={BorrowList} />
+                        <Route path="borrow" component={BookBorrow} />
+                        <Route path="list" component={BorrowList} />
+                        <Route path="check" component={BorrowCheck} />
+                    </Route>
                     <Route path="query">
                         <IndexRoute component={QueryList} />
                         <Route path="request" component={QueryRequest} />
@@ -55,6 +67,8 @@ ReactDOM.render(
                         <Route path="add" component={UserAdd} />
                         <Route path="list" component={UserList} />
                     </Route>
+                    <Route path="introduce" component={Introduction} />
+                    <Route path="resource/add" component={ResourceAdd} />
                 </Route>
             </Route>
         </Router>
