@@ -12,7 +12,7 @@ public class NavService {
     @Autowired
     private NavRepository navRepository;
 
-    public List<Nav> loadInitNav(){
+    public List<Nav> loadInitNav(Integer rights){
         return this.navRepository.findAll();
     }
 }

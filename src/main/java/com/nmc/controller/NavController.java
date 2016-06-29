@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -15,7 +16,7 @@ public class NavController {
     private NavService navService;
 
     @RequestMapping(value = "load", method = RequestMethod.GET)
-    public List<Nav> loadInitNav(){
-        return this.navService.loadInitNav();
+    public List<Nav> loadInitNav(HttpSession session){
+        return this.navService.loadInitNav((Integer)session.getAttribute("rights"));
     }
 }
