@@ -4,6 +4,10 @@ class SpreadList extends React.Component {
     constructor() {
         super();
 
+        this.state = {
+            data: []
+        };
+
         this.navs = [
             {names: 'Home', icon: 'home', link: '/console'},
             {names: 'Spread', icon: '#', link: '/console/spread'},
@@ -11,62 +15,48 @@ class SpreadList extends React.Component {
         ];
     }
 
-    static renderTable() {
+    componentDidMount() {
+        jQuery.ajax({
+            url: '/selfDb/spread',
+            method: 'POST',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+            error: function(xhr, status, error) {
+                console.error(status, error.toString());
+            }.bind(this)
+        })
+    }
+
+    renderTable() {
         return (
             <div className="panel-body">
                 <table className="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>
-                                <input type="checkbox" className="cbr" />
-                            </th>
                             <th>推广编号</th>
                             <th>推广内容</th>
-                            <th>操作</th>
+                            <th>链接</th>
                         </tr>
                     </thead>
                     <tbody className="middle-align">
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>
-
-                            </td>
-                        </tr>
+                        {this.state.data.map((spread) => {
+                            return (
+                                <tr>
+                                    <td>{spread.id}</td>
+                                    <td>{spread.db_name}</td>
+                                    <td>
+                                        <a href={spread.db_link} target="_blank">
+                                            {spread.db_link}
+                                        </a>
+                                    </td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
-                <ul className="pagination pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
             </div>
         )
     }
@@ -77,7 +67,7 @@ class SpreadList extends React.Component {
                 title="推广列表"
                 description="管理员推广文献"
                 navs={this.navs}
-                childComponent={SpreadList.renderTable()} />
+                childComponent={this.renderTable()} />
         )
     }
 }

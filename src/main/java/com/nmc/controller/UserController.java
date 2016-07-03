@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -23,5 +24,20 @@ public class UserController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public User doSave(@RequestBody String request) {
         return this.userService.doSave(request);
+    }
+
+    @RequestMapping(value = "list", method = RequestMethod.POST)
+    public List<User> doList() {
+        return this.userService.doList();
+    }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public boolean doDelete(@RequestBody String request) {
+        return this.userService.doDelete(request);
+    }
+
+    @RequestMapping(value = "modify", method = RequestMethod.POST)
+    public int doModify(@RequestBody String request) {
+        return this.userService.doModify(request);
     }
 }

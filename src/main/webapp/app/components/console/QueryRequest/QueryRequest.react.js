@@ -1,6 +1,7 @@
 import Panel from '../Panel/Panel.react';
 import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
+import QueryValidator from '../../../validators/QueryValidator';
 
 class QueryRequest extends React.Component {
     constructor() {
@@ -13,10 +14,14 @@ class QueryRequest extends React.Component {
         ];
     }
 
+    componentDidMount() {
+        QueryValidator.validateForm();
+    }
+
     static renderForm() {
         return (
             <div className="panel-body">
-                <form role="form" className="form-horizontal">
+                <form id="queryAdd" role="form" method="post" className="form-horizontal">
                     <InputControl
                         labelName="文献名"
                         icon="file-word-o"

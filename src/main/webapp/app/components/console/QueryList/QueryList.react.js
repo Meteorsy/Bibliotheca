@@ -4,6 +4,10 @@ class QueryList extends React.Component {
     constructor() {
         super();
 
+        this.state = {
+            data: []
+        };
+
         this.navs = [
             {names: 'Home', icon: 'home', link: '/console'},
             {names: 'Query', icon: '#', link: '/console/query'},
@@ -11,7 +15,22 @@ class QueryList extends React.Component {
         ];
     }
 
-    static renderTable() {
+    componentDidMount() {
+        jQuery.ajax({
+            url: '/query/list',
+            method: 'POST',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+            error: function(xhr, status, error) {
+                console.error(status, error.toString());
+            }.bind(this)
+        });
+    }
+
+    renderTable() {
         return (
             <div className="panel-body">
                 <table className="table table-bordered table-striped">
@@ -21,56 +40,27 @@ class QueryList extends React.Component {
                                 <input type="checkbox" className="cbr" />
                             </th>
                             <th>ID</th>
-                            <th>文献名</th>
+                            <th>关键词</th>
                             <th>申请时间</th>
                             <th>进度</th>
                         </tr>
                     </thead>
                     <tbody className="middle-align">
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>2016-06-04</td>
-                            <td>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>2016-06-04</td>
-                            <td>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>2016-06-04</td>
-                            <td>
-
-                            </td>
-                        </tr>
+                        {this.state.data.map((query) => {
+                            return (
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" className="cbr" value={query.id} />
+                                    </td>
+                                    <td>{query.id}</td>
+                                    <td>{query.keywords}</td>
+                                    <td>{query.date}</td>
+                                    <td>{query.state}</td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
-                <ul className="pagination pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
             </div>
         )
     }
@@ -81,7 +71,7 @@ class QueryList extends React.Component {
                 title="申请列表"
                 description="申请查询文献进度"
                 navs={this.navs}
-                childComponent={QueryList.renderTable()} />
+                childComponent={this.renderTable()} />
         )
     }
 }

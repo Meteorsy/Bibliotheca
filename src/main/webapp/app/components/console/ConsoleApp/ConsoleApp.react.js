@@ -8,6 +8,7 @@ class ConsoleApp extends React.Component {
 
     componentDidMount() {
         jQuery('#scrollBarContainer').perfectScrollbar();
+        jQuery('table tbody').perfectScrollbar();
     }
 
     render() {

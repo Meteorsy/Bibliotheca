@@ -15,7 +15,7 @@ public class NavController {
     @Autowired
     private NavService navService;
 
-    @RequestMapping(value = "load", method = RequestMethod.GET)
+    @RequestMapping(value = "load", method = RequestMethod.POST)
     public List<Nav> loadInitNav(HttpSession session){
         return this.navService.loadInitNav((Integer)session.getAttribute("rights"));
     }

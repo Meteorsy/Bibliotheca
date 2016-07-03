@@ -24,7 +24,6 @@
     "font-awesome": "^4.6.2",
     "gsap": "^1.18.4",
     "html5shiv": "^3.7.3",
-    "jquery-pjax": "^1.9.6",
     "jquery-validation": "^1.15.0",
     "react": "^15.0.2",
     "respond": "^1.4.2",
@@ -33,7 +32,6 @@
     "jquery.selectBoxIt": "^3.8.1",
     "jquery-ui": "jquery.ui#^1.11.4",
     "perfect-scrollbar": "^0.6.11",
-    "bootstrap-switch": "^3.3.2",
     "select2": "3.5.4"
   }
 }

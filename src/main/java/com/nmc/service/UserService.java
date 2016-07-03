@@ -6,6 +6,7 @@ import com.nmc.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -33,16 +34,42 @@ public class UserService {
 
         user.setUserId(StringUtils.getParameter(input, 0));
         user.setPassword(StringUtils.getParameter(input, 1));
-        user.setUsername(StringUtils.getParameter(input, 2));
-        user.setPhone(StringUtils.getParameter(input, 3));
-        user.setEmail(StringUtils.getParameter(input, 4));
+        user.setUsername(StringUtils.getParameter(input, 3));
+        user.setPhone(StringUtils.getParameter(input, 4));
+        user.setEmail(StringUtils.getParameter(input, 5));
         user.setIcon("#");
         user.setRights(1);
 
-        if (!this.userRepository.exists(user.getUserId())) {
+        if (StringUtils.getParameter(input, 1).equals(StringUtils.getParameter(input, 2)) && !this.userRepository.exists(user.getUserId())) {
             return this.userRepository.save(user);
         }
 
         return null;
+    }
+
+    public List<User> doList() {
+        return this.userRepository.findAll();
+    }
+
+    public boolean doDelete(String input) {
+        String userId = StringUtils.getParameter(input, 0);
+        this.userRepository.delete(userId);
+
+        return !this.userRepository.exists(userId);
+    }
+
+    public int doModify(String input) {
+        String userId = StringUtils.getParameter(input, 0);
+        String password = StringUtils.getParameter(input, 1);
+        String rePassword = StringUtils.getParameter(input, 2);
+        String username = StringUtils.getParameter(input, 3);
+        String phone = StringUtils.getParameter(input, 4);
+        String email = StringUtils.getParameter(input, 5);
+
+        if (password.equals(rePassword)) {
+            return this.userRepository.update(username, password, phone, email, userId);
+        }
+
+        return 0;
     }
 }

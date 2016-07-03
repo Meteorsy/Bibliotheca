@@ -18,7 +18,6 @@ import DatabaseSelf from './components/console/DatabaseSelf/DatabaseSelf.react';
 import DatabaseMIT from './components/console/DatabaseMIT/DatabaseMIT.react';
 
 import SpreadList from './components/console/SpreadList/SpreadList.react';
-import SpreadConfig from './components/console/SpreadConfig/SpreadConfig.react';
 
 import UserAdd from './components/console/UserAdd/UserAdd.react';
 import UserList from './components/console/UserList/UserList.react';
@@ -60,7 +59,6 @@ ReactDOM.render(
                     <Route path="spread">
                         <IndexRoute component={SpreadList} />
                         <Route path="list" component={SpreadList} />
-                        <Route path="config" component={SpreadConfig} />
                     </Route>
                     <Route path="user">
                         <IndexRoute component={UserList} />

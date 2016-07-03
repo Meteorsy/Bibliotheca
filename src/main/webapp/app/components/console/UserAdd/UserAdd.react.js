@@ -1,6 +1,7 @@
 import Panel from '../Panel/Panel.react';
 import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
+import UserValidator from '../../../validators/UserValidator';
 
 class UserAdd extends React.Component {
     constructor() {
@@ -13,10 +14,14 @@ class UserAdd extends React.Component {
         ];
     }
 
+    componentDidMount() {
+        UserValidator.validateForm();
+    }
+
     static renderForm () {
         return (
             <div className="panel-body">
-                <form role="form" className="form-horizontal">
+                <form id="userAdd" role="form" method="post" className="form-horizontal">
                     <InputControl labelName="账号" icon="user" type="text" placeholder="Input your account" names="userId" />
                     <InputControl labelName="密码" icon="key" type="password" placeholder="Input your password" names="password" />
                     <InputControl labelName="重复密码" icon="key" type="password" placeholder="repeat your password" names="rePassword" />

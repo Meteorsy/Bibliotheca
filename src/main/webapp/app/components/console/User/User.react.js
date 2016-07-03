@@ -40,7 +40,7 @@ class User extends React.Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/#/login">
                             <i className="fa fa-lock" />
                             Logout
                         </a>

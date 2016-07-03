@@ -3,6 +3,7 @@ import NavBarItem from '../NavBarItem/NavBarItem.react';
 class NavBar extends React.Component {
     constructor() {
         super();
+        
         this.state = {
             data: []
         }
@@ -11,6 +12,7 @@ class NavBar extends React.Component {
     componentDidMount() {
         $.ajax({
             url: "nav/load",
+            method: 'POST',
             dataType: 'json',
             cache: false,
             success: function(data) {

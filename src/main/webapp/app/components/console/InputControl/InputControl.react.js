@@ -12,7 +12,11 @@ class InputControl extends React.Component {
                         <div className="input-group-addon">
                             <i className={"fa fa-" + this.props.icon} />
                         </div>
-                        <input type={this.props.type} className="form-control" placeholder={this.props.placeholder} name={this.props.names} />
+                        <input
+                            type={this.props.type}
+                            className="form-control"
+                            placeholder={this.props.placeholder}
+                            name={this.props.names} />
                     </div>
                 </div>
             </div>

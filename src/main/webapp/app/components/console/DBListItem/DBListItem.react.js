@@ -5,7 +5,7 @@ class DBListItem extends React.Component {
         super();
     }
 
-    static renderTable() {
+    renderTable() {
         return (
             <div className="panel-body">
                 <table className="table table-bordered table-striped">
@@ -20,41 +20,24 @@ class DBListItem extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="middle-align">
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>130708109</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>130708109</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" className="cbr" />
-                            </td>
-                            <td>1</td>
-                            <td>demo</td>
-                            <td>130708109</td>
-                        </tr>
+                        {this.props.table.map((dates) => {
+                            return (
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" className="cbr" value={dates.id} />
+                                    </td>
+                                    <td>{dates.id}</td>
+                                    <td>{dates.db_name}</td>
+                                    <td>
+                                        <a href={dates.db_link} target="_blank">
+                                            {dates.db_link}
+                                        </a>
+                                    </td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
-                <ul className="pagination pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
             </div>
         )
     }
@@ -65,7 +48,7 @@ class DBListItem extends React.Component {
                 title={this.props.title}
                 description={this.props.description}
                 navs={this.props.navs}
-                childComponent={DBListItem.renderTable()}/>
+                childComponent={this.renderTable()}/>
         )
     }
 }

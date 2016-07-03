@@ -37,7 +37,7 @@ class LoginStore extends EventEmitter {
     }
 
     static validateForm() {
-        $('form').validate({
+        jQuery('form').validate({
             rules: {
                 username: {
                     required: true
@@ -71,7 +71,7 @@ class LoginStore extends EventEmitter {
                         if (response.userId){
                             window.location.href = '/#/console';
                         } else {
-                            toastr.error('Please confirm your username and password before press the login button');
+                            window.toastr.error('Please confirm your username and password before press the login button');
                         }
                     }
                 });

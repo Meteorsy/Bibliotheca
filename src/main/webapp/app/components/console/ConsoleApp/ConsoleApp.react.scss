@@ -35,6 +35,26 @@
 
         .main-content {
             margin-left: 80px;
+
+            .input-group {
+                position: relative;
+
+                input {
+                    &.error {
+                        border-color: rgba(204, 63, 68, .5);
+                    }
+                }
+
+                label {
+                    &.error {
+                        position: absolute;
+                        top: 7px;
+                        right: 0;
+                        z-index: 2;
+                        color: #D5080F;
+                    }
+                }
+            }
         }
     }
 }
