@@ -8,7 +8,8 @@ class DBValidator {
                 },
                 dbLink: {
                     required: true,
-                    maxlength: 255
+                    maxlength: 255,
+                    url: true
                 }
             },
             submitHandler: (form) => {
@@ -40,7 +41,8 @@ class DBValidator {
                 },
                 dbLink: {
                     required: true,
-                    maxlength: 255
+                    maxlength: 255,
+                    url: true
                 },
                 dbType: {
                     required: true
@@ -54,7 +56,7 @@ class DBValidator {
                     data: {
                         dbName: jQuery(form).find('input[name="dbName"]').val(),
                         dbLink: jQuery(form).find('input[name="dbLink"]').val(),
-                        dbType: jQuery(form).find('input[name="dbType"]').val()
+                        dbType: jQuery(form).find('select[name="dbType"]').val()
                     },
                     success: (response) => {
                         if (response.id) {

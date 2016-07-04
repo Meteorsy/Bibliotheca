@@ -23,7 +23,7 @@ public class Book {
     private Date borrowTime;
 
     @Column(name = "state")
-    private String states;
+    private String state;
 
     public String getBookId() {
         return bookId;
@@ -57,11 +57,11 @@ public class Book {
         this.borrowTime = borrowTime;
     }
 
-    public String getState() {
-        return states;
+    public String getStates() {
+        return state;
     }
 
-    public void setState(String state) {
-        this.states = state;
+    public void setStates(String state) {
+        this.state = state;
     }
 }

@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 @Transactional
 public interface DocsRepository extends JpaRepository<Docs, Integer> {
-    @Query("SELECT docs FROM Docs docs WHERE docs.doc_requester=:requester")
+    @Query("SELECT docs FROM Docs docs WHERE docs.requester=:requester")
     List<Docs> findAll(@Param("requester") String requester);
 
     @Modifying
-    @Query("UPDATE Docs docs SET docs.doc_state = :state WHERE docs.id = :id")
-    int update(@Param("state") String state, @Param("id") String id);
+    @Query("UPDATE Docs docs SET docs.state = :state WHERE docs.id = :id")
+    int update(@Param("state") String state, @Param("id") Integer id);
 }

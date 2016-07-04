@@ -2,6 +2,7 @@ package com.nmc.dao.repositorys;
 
 import com.nmc.dao.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,8 @@ public interface BookRepository extends JpaRepository<Book, String> {
     @Query("SELECT book FROM Book book WHERE book.ownerId = :ownerId")
     List<Book> findAllBorrowBooks(@Param("ownerId") String ownerId);
 
-    @Query("UPDATE Book book SET book.state = :states, book.ownerId = :ownerId WHERE book.bookId = :bookId")
+    @Modifying
+    @Query("UPDATE Book book SET book.state=:states, book.ownerId=:ownerId WHERE book.bookId=:bookId")
     int update(
             @Param("states") String states,
             @Param("ownerId") String ownerId,

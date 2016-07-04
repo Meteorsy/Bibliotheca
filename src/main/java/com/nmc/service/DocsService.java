@@ -32,7 +32,7 @@ public class DocsService {
     }
 
     public int doModify(String input) {
-        String id = StringUtils.getParameter(input, 0);
+        Integer id = Integer.valueOf(StringUtils.getParameter(input, 0));
         String state = StringUtils.getParameter(input, 1);
         return this.docsRepository.update(state, id);
     }

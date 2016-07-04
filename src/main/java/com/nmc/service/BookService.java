@@ -24,7 +24,7 @@ public class BookService {
         book.setBookName(bookName);
         book.setBorrowTime(new Date(System.currentTimeMillis()));
         book.setOwnerId("0");
-        book.setState("在库");
+        book.setStates("在库");
 
         return this.bookRepository.save(book);
     }

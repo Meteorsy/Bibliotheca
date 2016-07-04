@@ -12,7 +12,7 @@ class BookValidator {
                     method: 'POST',
                     dataType: 'json',
                     data: {
-                        bookId: jQuery(form).find('input[name="bookId"]').val()
+                        bookId: jQuery(form).find('select[name="bookId"]').val()
                     },
                     success: (response) => {
                         if (response > 0) {

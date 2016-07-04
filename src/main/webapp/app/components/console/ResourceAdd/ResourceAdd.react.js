@@ -57,7 +57,7 @@ class ResourceAdd extends React.Component {
             <div className="tab-pane fade" id="book">
                 <form id="bookAdd" role="form" method="post" className="form-horizontal">
                     <InputControl labelName="书籍Id" type="text" names="bookId" icon="book" placeholder="Please input the booId" />
-                    <InputControl labelName="书籍名" type="text" name="bookName" icon="comment-o" placeholder="Please input the bookName" />
+                    <InputControl labelName="书籍名" type="text" names="bookName" icon="comment-o" placeholder="Please input the bookName" />
                     <div className="form-group text-right">
                         <SimpleButton type="submit" class="success" text="提交" />
                         <SimpleButton type="reset" class="default" text="重置" />
@@ -72,7 +72,7 @@ class ResourceAdd extends React.Component {
             <div className="tab-pane fade" id="spread">
                 <form id="SpreadAdd" role="form" method="post" className="form-horizontal">
                     <InputControl labelName="推广标题" type="text" names="dbName" icon="exchange" placeholder="Please input the spread name" />
-                    <InputControl labelName="内容链接" type="text" name="dbLink" icon="link" placeholder="Please input the spread link" />
+                    <InputControl labelName="内容链接" type="text" names="dbLink" icon="link" placeholder="Please input the spread link" />
                     <div className="form-group text-right">
                         <SimpleButton type="submit" class="success" text="提交" />
                         <SimpleButton type="reset" class="default" text="重置" />
@@ -87,7 +87,7 @@ class ResourceAdd extends React.Component {
             <div className="tab-pane fade" id="db">
                 <form id="dbAdd" role="form" method="post" className="form-horizontal">
                     <InputControl labelName="数据库名" type="text" names="dbName" icon="database" placeholder="Please input the dbName" />
-                    <InputControl labelName="数据库链接" type="text" name="dbLink" icon="link" placeholder="Please input the dbLink" />
+                    <InputControl labelName="数据库链接" type="text" names="dbLink" icon="link" placeholder="Please input the dbLink" />
                     <SelectList
                         labelName="数据库类型"
                         names="dbType"
