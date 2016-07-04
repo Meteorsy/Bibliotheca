@@ -1,6 +1,25 @@
 class User extends React.Component {
     constructor() {
         super();
+
+        this.state = {
+            data: []
+        };
+    }
+
+    componentDidMount() {
+        jQuery.ajax({
+            url: '/user/show',
+            method: 'POST',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({data: data});
+            }.bind(this),
+            error: function(xhr, status, error) {
+                console.error(status, error.toString());
+            }.bind(this)
+        })
     }
 
     render() {
@@ -9,7 +28,7 @@ class User extends React.Component {
                 <a href="/console">
                     <img src="./dist/img/user.jpg" alt="user-image" />
                     <span>
-                        Lethe Eileen
+                        {this.state.data.username}
                         <i className="fa fa-angle-down" />
                     </span>
                 </a>

@@ -61,7 +61,34 @@ class UserValidator {
                     method: 'POST',
                     dataType: 'json',
                     data: {
-                        userId: id,
+                        password: jQuery(form).find('input[name="password"]').val(),
+                        rePassword: jQuery(form).find('input[name="rePassword"]').val(),
+                        username: jQuery(form).find('input[name="username"]').val(),
+                        mobile: jQuery(form).find('input[name="mobile"]').val(),
+                        email: jQuery(form).find('input[name="email"]').val(),
+                        userId: id
+                    },
+                    success: (response) => {
+                        if (response > 0) {
+                            jQuery('#userModal').modal('hide');
+                            window.toastr.success("Success to modify the user's information");
+                        } else {
+                            window.toastr.error("Something go wrong when modifying the new user!!")
+                        }
+                    }
+                })
+            }
+        });
+    }
+
+    static validateModified() {
+        jQuery('#userModified').validate({
+            submitHandler: (form) => {
+                jQuery.ajax({
+                    url: '/user/modified',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
                         password: jQuery(form).find('input[name="password"]').val(),
                         rePassword: jQuery(form).find('input[name="rePassword"]').val(),
                         username: jQuery(form).find('input[name="username"]').val(),

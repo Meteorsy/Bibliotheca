@@ -1,8 +1,44 @@
 import Panel from '../Panel/Panel.react';
+import SimpleButton from '../SimpleButton/SimpleButton.react';
+import DBValidator from '../../../validators/DBValidator';
 
 class DBListItem extends React.Component {
     constructor() {
         super();
+
+        this.state = {
+            rights: 3
+        };
+    }
+
+    componentDidMount() {
+        jQuery.ajax({
+            url: '/user/validate',
+            method: 'POST',
+            dataType: 'json',
+            success: (response) => {
+                this.setState({rights: response})
+            }
+        });
+    }
+
+    renderHeader() {
+        if (this.state.rights < 2) {
+            return (
+                <td>操作</td>
+            );
+        }
+    }
+
+    renderBody(obj) {
+        if (this.state.rights < 2) {
+            return (
+                <td>
+                    <SimpleButton type="button" class="info" ids={obj} text="修改" onClick={this.doModify} />
+                    <SimpleButton type="button" class="danger" text="删除" ids={obj} onClick={this.doDelete} />
+                </td>
+            );
+        }
     }
 
     renderTable() {
@@ -17,6 +53,7 @@ class DBListItem extends React.Component {
                             <th>ID</th>
                             <th>数据库名</th>
                             <th>链接</th>
+                            {this.renderHeader()}
                         </tr>
                     </thead>
                     <tbody className="middle-align">
@@ -33,11 +70,36 @@ class DBListItem extends React.Component {
                                             {dates.db_link}
                                         </a>
                                     </td>
+                                    {this.renderBody(dates.id)}
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
+                {this.renderForm()}
+            </div>
+        )
+    }
+
+    renderForm() {
+        return (
+            <div className="modal fade" id="dbModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <form id="dbModify" role="form" method="post" className="form-horizontal">
+                            <InputControl labelName="数据库名" type="text" names="dbName" icon="database" placeholder="Please input the dbName" />
+                            <InputControl labelName="数据库链接" type="text" names="dbLink" icon="link" placeholder="Please input the dbLink" />
+                            <SelectList
+                                labelName="数据库类型"
+                                names="dbType"
+                                options={this.options} />
+                            <div className="form-group text-right">
+                                <SimpleButton type="submit" class="success" text="提交" />
+                                <SimpleButton type="reset" class="default" text="重置" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -50,6 +112,28 @@ class DBListItem extends React.Component {
                 navs={this.props.navs}
                 childComponent={this.renderTable()}/>
         )
+    }
+
+    doModify(e) {
+        DBValidator.validateModify(e.target.dataset.id);
+    }
+
+    doDelete(e) {
+        jQuery.ajax({
+            url: 'selfDb/delete',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                id: e.target.dataset.id
+            },
+            success: (response) => {
+                if (response) {
+                    window.toastr.success("Success to delete the db");
+                } else {
+                    window.toastr.error("Something go wrong when deleting the db");
+                }
+            }
+        });
     }
 }
 

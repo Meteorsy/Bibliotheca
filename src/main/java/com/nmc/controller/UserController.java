@@ -27,8 +27,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "list", method = RequestMethod.POST)
-    public List<User> doList() {
-        return this.userService.doList();
+    public List<User> doList(HttpSession session) {
+        return this.userService.doList(session);
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
@@ -38,6 +38,21 @@ public class UserController {
 
     @RequestMapping(value = "modify", method = RequestMethod.POST)
     public int doModify(@RequestBody String request) {
-        return this.userService.doModify(request);
+        return this.userService.doModify(request, null);
+    }
+
+    @RequestMapping(value = "validate", method = RequestMethod.POST)
+    public int doValidate(HttpSession session) {
+        return session == null ? 3 : (Integer)session.getAttribute("rights");
+    }
+
+    @RequestMapping(value = "modified", method = RequestMethod.POST)
+    public int doModified(@RequestBody String request, HttpSession session) {
+        return this.userService.doModified(request, session);
+    }
+
+    @RequestMapping(value = "show", method = RequestMethod.POST)
+    public User doShow(HttpSession session) {
+        return this.userService.doShow(session);
     }
 }

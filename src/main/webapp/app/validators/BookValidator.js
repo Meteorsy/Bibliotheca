@@ -58,6 +58,36 @@ class BookValidator {
             }
         });
     }
+
+    static validateModify(e) {
+        jQuery('#bookModify').validate({
+            rules: {
+                bookName: {
+                    required: true,
+                    maxlength: 50
+                }
+            },
+            submitHandler: (form) => {
+                jQuery.ajax({
+                    url: '/book/modified',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        bookName: jQuery(form).find('input[name="bookName"]').val(),
+                        bookId: e
+                    },
+                    success: (response) => {
+                        if (response > 0) {
+                            jQuery('#bookModal').modal('hide');
+                            window.toastr.success("Success to modify the book!");
+                        } else {
+                            window.toastr.error("Something go wrong when updating the book!!")
+                        }
+                    }
+                })
+            }
+        });
+    }
 }
 
 export default BookValidator;

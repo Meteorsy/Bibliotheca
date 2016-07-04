@@ -6,6 +6,7 @@ import ConsoleApp from './components/console/ConsoleApp/ConsoleApp.react';
 import BookBorrow from './components/console/BookBorrow/BookBorrow.react';
 import BorrowList from './components/console/BorrowList/BorrowList.react';
 import BorrowCheck from './components/console/BorrowCheck/BorrowCheck.react';
+import BookList from './components/console/BookList/BookList.react';
 
 import QueryRequest from './components/console/QueryRequest/QueryRequest.react';
 import QueryList from './components/console/QueryList/QueryList.react';
@@ -21,6 +22,7 @@ import SpreadList from './components/console/SpreadList/SpreadList.react';
 
 import UserAdd from './components/console/UserAdd/UserAdd.react';
 import UserList from './components/console/UserList/UserList.react';
+import UserModify from './components/console/UserModify/UserModify.react';
 import Introduction from './components/console/Introduction/Introduction.react';
 import ResourceAdd from './components/console/ResourceAdd/ResourceAdd.react';
 
@@ -41,6 +43,7 @@ ReactDOM.render(
                         <Route path="borrow" component={BookBorrow} />
                         <Route path="list" component={BorrowList} />
                         <Route path="check" component={BorrowCheck} />
+                        <Route path="show" component={BookList} />
                     </Route>
                     <Route path="query">
                         <IndexRoute component={QueryList} />
@@ -62,6 +65,7 @@ ReactDOM.render(
                     </Route>
                     <Route path="user">
                         <IndexRoute component={UserList} />
+                        <Route path="modify" component={UserModify} />
                         <Route path="add" component={UserAdd} />
                         <Route path="list" component={UserList} />
                     </Route>

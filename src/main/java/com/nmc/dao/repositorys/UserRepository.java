@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -22,4 +23,7 @@ public interface UserRepository extends JpaRepository<User, String> {
             @Param("mobile") String mobile,
             @Param("email") String email,
             @Param("userId") String userId);
+
+    @Query("SELECT user FROM User user WHERE user.rights < :rights")
+    List<User> findAll(@Param("rights") int rights);
 }

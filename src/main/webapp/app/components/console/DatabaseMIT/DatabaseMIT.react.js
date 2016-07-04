@@ -27,7 +27,7 @@ class DatabaseMIT extends React.Component {
             error: function(xhr, status, error) {
                 console.error(status, error.toString());
             }.bind(this)
-        })
+        });
     }
 
     render() {

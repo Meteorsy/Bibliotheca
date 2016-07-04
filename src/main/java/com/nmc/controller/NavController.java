@@ -17,6 +17,10 @@ public class NavController {
 
     @RequestMapping(value = "load", method = RequestMethod.POST)
     public List<Nav> loadInitNav(HttpSession session){
+        if (session == null) {
+            return null;
+        }
+
         return this.navService.loadInitNav((Integer)session.getAttribute("rights"));
     }
 }

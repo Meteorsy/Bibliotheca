@@ -22,7 +22,7 @@ class QueryValidator {
                             window.toastr.error("Something go wrong when adding the new query!!")
                         }
                     }
-                })
+                });
             }
         });
     }
