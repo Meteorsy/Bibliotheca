@@ -39,7 +39,8 @@ class UserValidator {
                         rePassword: jQuery(form).find('input[name="rePassword"]').val(),
                         username: jQuery(form).find('input[name="username"]').val(),
                         mobile: jQuery(form).find('input[name="mobile"]').val(),
-                        email: jQuery(form).find('input[name="email"]').val()
+                        email: jQuery(form).find('input[name="email"]').val(),
+                        rights: jQuery(form).find('select[name="rights"]').val()
                     },
                     success: (response) => {
                         if (response.userId) {

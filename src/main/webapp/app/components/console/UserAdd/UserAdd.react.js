@@ -1,6 +1,7 @@
 import Panel from '../Panel/Panel.react';
 import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
+import SelectList from '../SelectList/SelectList.react';
 import UserValidator from '../../../validators/UserValidator';
 
 class UserAdd extends React.Component {
@@ -12,13 +13,18 @@ class UserAdd extends React.Component {
             {names: 'User', icon: '#', link: '/console/user'},
             {names: 'Add', icon: '#', link: '/console/user/add'}
         ];
+
+        this.options = [
+            {key: 1, value: "管理员"},
+            {key: 2, value: "学生"}
+        ];
     }
 
     componentDidMount() {
         UserValidator.validateForm();
     }
 
-    static renderForm () {
+    renderForm () {
         return (
             <div className="panel-body">
                 <form id="userAdd" role="form" method="post" className="form-horizontal">
@@ -28,6 +34,10 @@ class UserAdd extends React.Component {
                     <InputControl labelName="昵称" icon="comment" type="text" placeholder="Input your username" names="username" />
                     <InputControl labelName="手机" icon="mobile" type="text" placeholder="Input your phone number" names="mobile" />
                     <InputControl labelName="邮箱" icon="envelope-o" type="text" placeholder="Input your email address" names="email" />
+                    <SelectList
+                        labelName="类别"
+                        names="rights"
+                        options={this.options} />
                     <div className="form-group text-right">
                         <SimpleButton type="submit" class="success" text="提交" />
                         <SimpleButton type="reset" class="default" text="重置" />
@@ -43,7 +53,7 @@ class UserAdd extends React.Component {
                 title="用户添加"
                 description="添加管理员以辅助系统运行"
                 navs={this.navs}
-                childComponent={UserAdd.renderForm()}  />
+                childComponent={this.renderForm()}  />
         )
     }
 }

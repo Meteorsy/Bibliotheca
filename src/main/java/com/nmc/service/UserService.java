@@ -50,7 +50,7 @@ public class UserService {
         user.setPhone(StringUtils.getParameter(input, 4));
         user.setEmail(StringUtils.getParameter(input, 5));
         user.setIcon("#");
-        user.setRights(1);
+        user.setRights(StringUtils.getParameter(input, 6));
 
         if (StringUtils.getParameter(input, 1).equals(StringUtils.getParameter(input, 2)) && !this.userRepository.exists(user.getUserId())) {
             return this.userRepository.save(user);
