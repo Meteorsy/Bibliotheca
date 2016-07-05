@@ -42,7 +42,7 @@ class UserModify extends React.Component {
                 title="用户修改"
                 description="修改用户信息"
                 navs={this.navs}
-                childComponent={UserAdd.renderForm()}  />
+                childComponent={UserModify.renderForm()}  />
         )
     }
 }

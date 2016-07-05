@@ -1,4 +1,5 @@
 import Panel from '../Panel/Panel.react';
+import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
 import DBValidator from '../../../validators/DBValidator';
 
@@ -59,7 +60,7 @@ class SpreadList extends React.Component {
         if (this.state.rights < 2) {
             return (
                 <td>
-                    <SimpleButton type="button" class="info" ids={obj} text="修改" onClick={this.doModify} />
+                    <SimpleButton toggles="modal" target="#spreadModal" type="button" class="info" ids={obj} text="修改" onClick={this.doModify} />
                     <SimpleButton type="button" class="danger" text="删除" ids={obj} onClick={this.doDelete} />
                 </td>
             );

@@ -1,5 +1,7 @@
 import Panel from '../Panel/Panel.react';
+import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
+import SelectList from '../SelectList/SelectList.react';
 import DBValidator from '../../../validators/DBValidator';
 
 class DBListItem extends React.Component {
@@ -9,6 +11,14 @@ class DBListItem extends React.Component {
         this.state = {
             rights: 3
         };
+
+        this.options = [
+            {key: 0, value: '中文数据库'},
+            {key: 1, value: '外文数据库'},
+            {key: 4, value: '试用数据库'},
+            {key: 3, value: '自建数据库'},
+            {key: 2, value: '开源数据库'}
+        ]
     }
 
     componentDidMount() {
@@ -34,7 +44,7 @@ class DBListItem extends React.Component {
         if (this.state.rights < 2) {
             return (
                 <td>
-                    <SimpleButton type="button" class="info" ids={obj} text="修改" onClick={this.doModify} />
+                    <SimpleButton toggles="modal" target="#dbModal" type="button" class="info" ids={obj} text="修改" onClick={this.doModify} />
                     <SimpleButton type="button" class="danger" text="删除" ids={obj} onClick={this.doDelete} />
                 </td>
             );

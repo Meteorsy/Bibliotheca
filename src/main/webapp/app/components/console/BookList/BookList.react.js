@@ -1,4 +1,5 @@
 import Panel from '../Panel/Panel.react';
+import InputControl from '../InputControl/InputControl.react';
 import SimpleButton from '../SimpleButton/SimpleButton.react';
 import BookValidator from '../../../validators/BookValidator';
 
@@ -56,7 +57,7 @@ class BookList extends React.Component {
                                 <td>{book.bookId}</td>
                                 <td>{book.bookName}</td>
                                 <td>
-                                    <SimpleButton type="button" class="info" ids={book.bookId} text="修改" onClick={this.doModify} />
+                                    <SimpleButton toggles="modal" target="#bookModal" type="button" class="info" ids={book.bookId} text="修改" onClick={this.doModify} />
                                     <SimpleButton type="button" class="danger" text="删除" ids={book.bookId} onClick={this.doDelete} />
                                 </td>
                             </tr>
@@ -90,8 +91,8 @@ class BookList extends React.Component {
     render() {
         return (
             <Panel
-                title="借阅总览"
-                description="借阅书籍信息总览"
+                title="书籍总览"
+                description="书籍信息总览"
                 navs={this.navs}
                 childComponent={this.renderTable()} />
         )
