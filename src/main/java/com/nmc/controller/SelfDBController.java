@@ -49,4 +49,14 @@ public class SelfDBController {
     public List<SelfDB> doLoadSpread() {
         return this.selfDBService.doLoad(5);
     }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public boolean doDelete(@RequestBody String request) {
+        return this.selfDBService.doDelete(request);
+    }
+
+    @RequestMapping(value = "modify", method = RequestMethod.POST)
+    public int doModify(@RequestBody String request) {
+        return this.selfDBService.doModify(request);
+    }
 }

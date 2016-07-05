@@ -29,6 +29,18 @@ public class UserService {
         return user;
     }
 
+    public User doShow(HttpSession session) {
+        User user = new User();
+
+        if (session != null) {
+            user.setUserId(session.getAttribute("userId").toString());
+            user.setUsername(session.getAttribute("username").toString());
+            user.setRights((Integer) session.getAttribute("rights"));
+        }
+
+        return user;
+    }
+
     public User doSave(String input) {
         User user = new User();
 
@@ -47,8 +59,8 @@ public class UserService {
         return null;
     }
 
-    public List<User> doList() {
-        return this.userRepository.findAll();
+    public List<User> doList(HttpSession session) {
+        return this.userRepository.findAll((Integer)session.getAttribute("rights"));
     }
 
     public boolean doDelete(String input) {
@@ -58,18 +70,22 @@ public class UserService {
         return !this.userRepository.exists(userId);
     }
 
-    public int doModify(String input) {
-        String userId = StringUtils.getParameter(input, 0);
-        String password = StringUtils.getParameter(input, 1);
-        String rePassword = StringUtils.getParameter(input, 2);
-        String username = StringUtils.getParameter(input, 3);
-        String phone = StringUtils.getParameter(input, 4);
-        String email = StringUtils.getParameter(input, 5);
+    public int doModify(String input, String id) {
+        String password = StringUtils.getParameter(input, 0);
+        String rePassword = StringUtils.getParameter(input, 1);
+        String username = StringUtils.getParameter(input, 2);
+        String phone = StringUtils.getParameter(input, 3);
+        String email = StringUtils.getParameter(input, 4);
+        String userId = (id != null) ? id : StringUtils.getParameter(input, 5);
 
         if (password.equals(rePassword)) {
             return this.userRepository.update(username, password, phone, email, userId);
         }
 
         return 0;
+    }
+
+    public int doModified(String input, HttpSession session) {
+        return this.doModify(input, session.getAttribute("userId").toString());
     }
 }

@@ -16,10 +16,15 @@ class NavBar extends React.Component {
             dataType: 'json',
             cache: false,
             success: function(data) {
+                if (data == null){
+                    window.location.href = '/#/login';
+                }
+                
                 this.setState({data: data});
             }.bind(this),
             error: function(xhr, status, error) {
                 console.error(status, error.toString());
+                window.location.href = '/#/login';
             }.bind(this)
         });
     }

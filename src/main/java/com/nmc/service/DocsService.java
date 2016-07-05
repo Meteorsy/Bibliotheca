@@ -34,6 +34,13 @@ public class DocsService {
     public int doModify(String input) {
         Integer id = Integer.valueOf(StringUtils.getParameter(input, 0));
         String state = StringUtils.getParameter(input, 1);
+
+        if (state.equals("已处理")) {
+            this.docsRepository.delete(id);
+
+            return 1;
+        }
+
         return this.docsRepository.update(state, id);
     }
 

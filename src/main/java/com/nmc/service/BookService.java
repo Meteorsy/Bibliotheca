@@ -41,6 +41,10 @@ public class BookService {
         return this.bookRepository.findAllBooks("待审核");
     }
 
+    public List<Book> doShow() {
+        return this.bookRepository.findAll();
+    }
+
     public int doModify(String input) {
         String id = StringUtils.getParameter(input, 0);
         String state = StringUtils.getParameter(input, 1);
@@ -58,5 +62,20 @@ public class BookService {
         String id = StringUtils.getParameter(input, 0);
 
         return this.bookRepository.update("待审核", session.getAttribute("userId").toString(), id);
+    }
+
+    public boolean doDelete(String input) {
+        String id = StringUtils.getParameter(input, 0);
+
+        this.bookRepository.delete(id);
+
+        return !this.bookRepository.exists(id);
+    }
+
+    public int doModified(String input) {
+        String id = StringUtils.getParameter(input, 0);
+        String name = StringUtils.getParameter(input, 1);
+
+        return this.bookRepository.updated(name, id);
     }
 }

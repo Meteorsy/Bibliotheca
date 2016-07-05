@@ -30,4 +30,21 @@ public class SelfDBService {
     public List<SelfDB> doLoad(int source) {
         return this.selfDBRepository.findByType(source);
     }
+
+    public boolean doDelete(String input) {
+        Integer id = Integer.valueOf(StringUtils.getParameter(input, 0));
+
+        this.selfDBRepository.delete(id);
+
+        return !this.selfDBRepository.exists(id);
+    }
+
+    public int doModify(String input) {
+        String name = StringUtils.getParameter(input, 0);
+        String link = StringUtils.getParameter(input, 1);
+        int type = Integer.valueOf(StringUtils.getParameter(input, 2));
+        Integer id = Integer.valueOf(StringUtils.getParameter(input, 3));
+
+        return this.selfDBRepository.update(name, link, type, id);
+    }
 }

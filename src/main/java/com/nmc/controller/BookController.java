@@ -45,4 +45,19 @@ public class BookController {
     public int doChange(@RequestBody String request, HttpSession session) {
         return this.bookService.doChange(request, session);
     }
+
+    @RequestMapping(value = "show", method = RequestMethod.POST)
+    public List<Book> doShow() {
+        return this.bookService.doShow();
+    }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public boolean doDelete(@RequestBody String request) {
+        return this.bookService.doDelete(request);
+    }
+
+    @RequestMapping(value = "modified", method = RequestMethod.POST)
+    public int doModified(@RequestBody String request) {
+        return this.bookService.doModified(request);
+    }
 }
